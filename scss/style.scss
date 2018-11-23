@@ -1,0 +1,160 @@
+@import "mixins";
+
+$grass-green: #9BE651;
+$trans-light-grey: rgba(204,204,204,0.85);
+$light-grey: #cccccc;
+$barn-bg: #d4b04f;
+$header-bg: #8cd5d7;
+$header-txt: #ffffff;
+$animal-select-bg: #58ad35;
+$animal-select-bg: #acaa19;
+
+body, html {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #8cd5d7;
+  height: 100%;
+}
+
+body {
+  @include flex-display-wrap();
+  @include flex-align-items-center();
+}
+
+* {
+  box-sizing:border-box;
+}
+
+h1, h2 {
+  font-family: 'Pacifico', cursive;
+}
+
+.wrap {
+  width: 100%;
+}
+
+header {
+  padding: 20px;
+  text-align: center;
+  background-color: $header-bg;
+  color: $header-txt;
+
+  h1 {
+    margin: 0;
+  }
+}
+
+
+.barn-wrap{
+  background-color: $barn-bg;
+
+
+  .barn {
+    @include flex-display-wrap();
+    @include flex-align-items-center();
+    @include flex-justify-content-space-around();
+    width: 320px;
+    max-width: 100%;
+    height: 320px;
+    margin: 0 auto;
+    background-image: url("../img/backgrounds/barn.png");
+    background-size: contain;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+  }
+
+  .barn-animal {
+    @include flex-display-nowrap();
+    @include flex-align-items-center();
+    @include flex-justify-content-center();
+    width: 130px;
+    height: 130px;
+    //background-color: $trans-light-grey;
+    //border: 2px solid $light-grey;
+    //border-radius: 20px;
+
+      img {
+        display: block;
+        width: 80%;
+        height: 80%;
+      }
+  }
+
+  .barn-animal.added {
+    background-color: $trans-light-grey;
+    border: 2px solid $light-grey;
+    border-radius: 20px;
+  }
+
+  .barn-facts {
+    @include flex-display-nowrap();
+    @include flex-align-items-center();
+    @include flex-justify-content-center();
+    background-image: url("../img/backgrounds/field.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 300px;
+    padding: 15px;
+  }
+
+  .barn-facts-inner {
+    width: 90%;
+    padding: 15px;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 20px;
+    text-align: center;
+  }
+}
+
+.animal-select-wrap {
+  padding: 20px 0;
+  text-align: center;
+  background-color: $animal-select-bg;
+  color: #ffffff;
+
+
+  h2 {
+    margin: 0;
+  }
+
+  .animal-select {
+    @include flex-display-nowrap();
+    @include flex-justify-content-center();
+    background-color: $animal-select-bg;
+
+    .animal {
+      max-width: 25%;
+
+      img {
+        display: block;
+        width: 100%;
+        max-width: 100px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) and (min-height:600px) {
+  .barn-wrap {
+    @include flex-display-nowrap();
+
+    .barn {
+      width: 400px;
+      height: 400px;
+      margin: 0;
+    }
+    .barn-animal {
+      width: 170px;
+      height: 170px;
+    }
+    .barn-facts {
+      padding: 15px;
+      width: calc(100% - 400px);
+    }
+
+    .barn-facts-inner {
+      height: 200px;
+    }
+
+  }
+}
